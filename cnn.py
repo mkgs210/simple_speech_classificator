@@ -172,15 +172,11 @@ if __name__ == "__main__":
     os.makedirs("./SpeechCommandsData", exist_ok=True)
     data_dir = "./SpeechCommandsData"
     
-    group_values = [8, 16]#[2, 4, 8, 16]
+    group_values = [2, 4, 8, 16]
     n_mels_values = [20, 40, 80]
     results = {}
     
     for groups in group_values:
-        if groups == 8:
-            n_mels_values = [80]
-        else:
-            n_mels_values = [20, 40, 80]
         for n_mels in n_mels_values:
             exp_name = f"groups_{groups}_mels_{n_mels}"
             logger = TensorBoardLogger("tb_logs", name=exp_name)
